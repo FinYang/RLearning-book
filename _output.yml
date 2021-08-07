@@ -1,0 +1,5 @@
+bookdown::gitbook:
+  config:
+    toc:
+      before: |
+        <li><a href="./">R语言数据分析组队学习</a></li>
