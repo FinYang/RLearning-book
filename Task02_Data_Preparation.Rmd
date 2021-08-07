@@ -6,7 +6,7 @@
 Task 02共计6个知识点，预计需学习5~8小时，请安排好学习任务。
 
 ## 环境配置 {-}
-```{r}
+```{r, message=FALSE}
 library(mlbench) # 将会使用到包中的BostonHousing数据集
 library(funModeling) # 探索性数据分析工具包，本节内容中将会使用到它的status()函数，打印整体数据质量
 library(tidyverse) # 数据转化工具包，本节内容中将会使用它包含的dplyr中的管道函数 %>%
