@@ -183,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.4.1" data-path="task-01.html"><a href="task-01.html#矩阵matrix"><i class="fa fa-check"></i><b>1.4.1</b> 矩阵（matrix）</a></li>
 <li class="chapter" data-level="1.4.2" data-path="task-01.html"><a href="task-01.html#列表list"><i class="fa fa-check"></i><b>1.4.2</b> 列表（list）</a></li>
-<li class="chapter" data-level="1.4.3" data-path="task-01.html"><a href="task-01.html#数据表data-frame与tibble"><i class="fa fa-check"></i><b>1.4.3</b> 数据表（data frame与tibble）</a></li>
+<li class="chapter" data-level="1.4.3" data-path="task-01.html"><a href="task-01.html#数据表data-frame-与-tibble"><i class="fa fa-check"></i><b>1.4.3</b> 数据表（data frame 与 tibble）</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="task-01.html"><a href="task-01.html#读写数据"><i class="fa fa-check"></i><b>1.5</b> 读写数据</a>
 <ul>
@@ -308,11 +308,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="准备工作" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> 准备工作</h2>
 <p>这节组队学习的目的主要是帮助你上手R的基本编程逻辑，了解一些R编程的基本概念，包括各个数据类型和数据集的读取与保存。</p>
-<p>在开始我们的学习之前，不要忘记在R Studio中切换到组队学习专属的项目，打开一个R script 文件或者R Markdown文件（详见入门篇）。</p>
+<p>在开始我们的学习之前，不要忘记在 R Studio 中切换到组队学习专属的项目，打开一个 R script 文件或者 R Markdown 文件（详见入门篇）。</p>
 </div>
 <div id="编码基础" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> 编码基础</h2>
-<p>首先我们来了解一些基本的编码操作。在R Studio中想要运行代码可以在控制台Console中键入代码后点击回车。这样运行的代码会被保存在当前项目的<code>.Rhistory</code>文件中，也可以在R Studio 界面右上角的 History 面板中找到，但是不会被明确地保存下来作为一个脚本文件。一般只有在我们想要运行一些简单的指令或者计算的时候才会采取这种方式。更常见的是将代码写在脚本文件中，选中相应的代码后点击界面上方的Run或者快捷键（<code>Ctrl</code> + <code>Enter</code>）来运行。</p>
+<p>首先我们来了解一些基本的编码操作。在 R Studio 中想要运行代码可以在控制台 Console 中键入代码后点击回车。这样运行的代码会被保存在当前项目的 <code>.Rhistory</code> 文件中，也可以在 R Studio 界面右上角的 History 面板中找到，但是不会被明确地保存下来作为一个脚本文件。一般只有在我们想要运行一些简单的指令或者计算的时候才会采取这种方式。更常见的是将代码写在脚本文件中，选中相应的代码后点击界面上方的Run或者快捷键（<code>Ctrl</code> + <code>Enter</code>）来运行。</p>
 <div id="算术" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> 算术</h3>
 <p>你可以直接运行计算命令。计算符号包括加<code>+</code>、减<code>-</code>、乘<code>*</code>、除<code>/</code>、求幂<code>^</code>以及求余数<code>%%</code>等。值得一提的是开平方根有他自己单独的函数<code>sqrt</code>。</p>
@@ -333,14 +333,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="赋值" class="section level3" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> 赋值</h3>
-<p>在R里，我们可以为一个“东西”取一个名字，这个“东西”可以是一个值、一个向量、或者一个函数等，这样我们就可以之后再获取存储在这个名字下面的信息。</p>
+<p>在 R 里，我们可以为一个“东西”取一个名字，这个“东西”可以是一个值、一个向量、或者一个函数等，这样我们就可以之后再获取存储在这个名字下面的信息。</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="task-01.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 将数字42赋予名叫x的变量</span></span>
 <span id="cb15-2"><a href="task-01.html#cb15-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">42</span></span>
 <span id="cb15-3"><a href="task-01.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 在R中运行一个物体的名字</span></span>
 <span id="cb15-4"><a href="task-01.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># R将会打印出（print）该物体的值</span></span>
 <span id="cb15-5"><a href="task-01.html#cb15-5" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 42</code></pre>
-<p>在R中基础赋值的符号有三种：</p>
+<p>在 R 中基础赋值的符号有三种：</p>
 <ol style="list-style-type: decimal">
 <li>一个向左的箭头<code>&lt;-</code>表示将箭头右方的值取名叫做箭头左侧的名字，或者将箭头右侧的值存储在箭头左侧的名字里；</li>
 <li>一个向右的箭头<code>-&gt;</code>表示将箭头左侧的值储存在箭头右侧的名字里；</li>
@@ -355,7 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>同时使用<code>=</code>与<code>==</code>（判断是否相等）会降低可读性（<code>a &lt;- 1 == 2</code> vs <code>a = 1 == 2</code>）。</li>
 </ol>
 <p>总结，<strong>凡是赋值都用<code>&lt;-</code></strong>，凡是设参（之后会说到）都用<code>=</code>。</p>
-<p>在R Studio中可以使用快捷键<code>Alt</code> + <code>-</code>来输入<code>&lt;-</code>，这样就不用每次都点两次键啦。这样还有一个好处，就是R Studio会自动识别当前的输入语言，从而选择最佳的赋值符号。大多数情况下这也就是说他会输入R的<code>&lt;-</code>，如果你在R Studio里用Python的话就会自动变成<code>=</code>啦。</p>
+<p>在 R Studio 中可以使用快捷键<code>Alt</code> + <code>-</code>来输入<code>&lt;-</code>，这样就不用每次都点两次键啦。这样还有一个好处，就是 R Studio 会自动识别当前的输入语言，从而选择最佳的赋值符号。大多数情况下这也就是说他会输入R的<code>&lt;-</code>，如果你在 R Studio 里用 Python 的话就会自动变成<code>=</code>啦。</p>
 <p>原来作用于单纯数字上的算术运算现在即可用变量名称代替具体的数值。</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="task-01.html#cb17-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">21</span></span>
 <span id="cb17-2"><a href="task-01.html#cb17-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span></code></pre></div>
@@ -364,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="函数" class="section level3" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> 函数</h3>
-<p>R是一个非纯函数式编程（Functional Programming）的语言，与你平时可能所熟悉的面向对象程序设计（Object-Oriented Programming）的编程语言（比如Python）不一样。这意味着在R中，相对于以类（Class）与对象（Object）的思路思考问题，我们要更多地定义函数（Function）以及考虑函数的输入与输出来进行运算。（如果你不知道我在这里说什么，请忽略这段话。）</p>
+<p>R是一个非纯函数式编程（Functional Programming）的语言，与你平时可能所熟悉的面向对象程序设计（Object-Oriented Programming）的编程语言（比如 Python）不一样。这意味着在R中，相对于以类（Class）与对象（Object）的思路思考问题，我们要更多地定义函数（Function）以及考虑函数的输入与输出来进行运算。（如果你不知道我在这里说什么，请忽略这段话。）</p>
 <p>在R中，所有的运算都是通过函数来达成的。我们可以用和之前一样的赋值方法（<code>&lt;-</code>）来将一个函数存储在一个名字下。请看以下示例：</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="task-01.html#cb20-1" aria-hidden="true" tabindex="-1"></a>addone <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x =</span> <span class="dv">0</span>) {</span>
 <span id="cb20-2"><a href="task-01.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> <span class="dv">1</span></span>
@@ -385,7 +385,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## function(x = 0) {
 ##   x + 1
 ## }
-## &lt;bytecode: 0x0000000015430488&gt;</code></pre>
+## &lt;bytecode: 0x000000001543caa8&gt;</code></pre>
 <p>当你完成了一个复杂的计算，不要忘记把结果储存在一个名字下，否则结果不会保存下来，只会在控制台中一闪而过。</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="task-01.html#cb29-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">42</span></span>
 <span id="cb29-2"><a href="task-01.html#cb29-2" aria-hidden="true" tabindex="-1"></a>y_plusone <span class="ot">&lt;-</span> <span class="fu">addone</span>(y)</span></code></pre></div>
@@ -393,7 +393,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="循环loop" class="section level3" number="1.2.4">
 <h3><span class="header-section-number">1.2.4</span> 循环（loop）</h3>
 <p>使用代码很重要的一个原因是可以重复进行多次相同或有规律的操作，也就是循环了。</p>
-<p>R中的循环函数包括<code>for</code>，<code>while</code>，和<code>repeat</code>。在这里我们简单用一个例子来介绍一下最灵活的<code>for</code>循环：</p>
+<p>R 中的循环函数包括<code>for</code>，<code>while</code>，和<code>repeat</code>。在这里我们简单用一个例子来介绍一下最灵活的<code>for</code>循环：</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="task-01.html#cb30-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb30-2"><a href="task-01.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>){</span>
 <span id="cb30-3"><a href="task-01.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x <span class="sc">+</span> i</span>
@@ -558,7 +558,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] kindergarten   primary school middle school  primary school middle school 
 ## [6] kindergarten  
 ## Levels: kindergarten &lt; primary school &lt; middle school</code></pre>
-<p>实质上，R把因子向量当作整数型数值向量来对待。这也就意味着用因子向量替代字符向量可以剩下很多字节。</p>
+<p>实质上，R 把因子向量当作整数型数值向量来对待。这也就意味着用因子向量替代字符向量可以剩下很多字节。</p>
 </div>
 <div id="transform" class="section level4" number="1.3.2.2">
 <h4><span class="header-section-number">1.3.2.2</span> 数值之间的转换</h4>
@@ -731,13 +731,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="时间序列ts" class="section level4" number="1.3.3.2">
 <h4><span class="header-section-number">1.3.3.2</span> 时间序列（ts）</h4>
-<p>时间序列作为一种有自相关性质的特殊数据类型，在R中也是可以分开处理的。制造时间序列的函数叫做<code>ts</code>，也就是time series的缩写：</p>
+<p>时间序列作为一种有自相关性质的特殊数据类型，在R中也是可以分开处理的。制造时间序列的函数叫做<code>ts</code>，也就是 time series 的缩写：</p>
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="task-01.html#cb146-1" aria-hidden="true" tabindex="-1"></a>xts <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rnorm</span>(<span class="dv">12</span>), <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">2021</span>, <span class="dv">1</span>), <span class="at">frequency =</span> <span class="dv">4</span>)</span>
 <span id="cb146-2"><a href="task-01.html#cb146-2" aria-hidden="true" tabindex="-1"></a>xts</span></code></pre></div>
 <pre><code>##             Qtr1        Qtr2        Qtr3        Qtr4
-## 2021  0.01115881 -0.28522268 -0.27169255 -1.42718905
-## 2022  1.37074007  0.39918651  0.71193937  1.99230583
-## 2023 -0.18308433  0.52049940  0.19770486 -0.69660548</code></pre>
+## 2021 -0.01854647  0.41850557 -1.90485991  0.05536588
+## 2022 -0.55632530 -0.72005219  0.40252629 -0.24945994
+## 2023 -1.02223328  0.45472318  1.03158278 -0.56410412</code></pre>
 <p>在这里创造的序列便拥有了时间序列的性质。<code>ts</code>函数的<code>start</code>参数设定了时间序列开始的时间，<code>frequency</code>参数设定了时间序列的周期性。在上面的例子中，我们创造了一个从2021年第一季度开始的，具有季节性的时间序列，跨度三年。我们也有相应的函数可以提取这些时间序列的信息：</p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="task-01.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 起始日期</span></span>
 <span id="cb148-2"><a href="task-01.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">start</span>(xts)</span></code></pre></div>
@@ -748,7 +748,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="task-01.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 周期性</span></span>
 <span id="cb152-2"><a href="task-01.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="fu">frequency</span>(xts)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<p>使用时间序列的好处在于我们可以用一些很简单的命令来使用时间序列的模型，比如使用<code>forecast</code>包来用一个ARIMA模型对澳大利亚燃气月生产量进行预测：</p>
+<p>使用时间序列的好处在于我们可以用一些很简单的命令来使用时间序列的模型，比如使用<code>forecast</code>包来用一个 ARIMA 模型对澳大利亚燃气月生产量进行预测：</p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="task-01.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
 <pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
 ##   method            from
@@ -935,8 +935,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] &quot;To be or not to be&quot;</code></pre>
 </div>
 </div>
-<div id="数据表data-frame与tibble" class="section level3" number="1.4.3">
-<h3><span class="header-section-number">1.4.3</span> 数据表（data frame与tibble）</h3>
+<div id="数据表data-frame-与-tibble" class="section level3" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> 数据表（data frame 与 tibble）</h3>
 <p>数据表将是进行数据分析的时候接触的最多的数据类型了。一个数据表（data frame）的本质是一个列表（list），但是采取了矩阵（matrix）的展示形式：</p>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="task-01.html#cb194-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">y =</span> month.abb, <span class="at">z =</span> month.name)</span>
 <span id="cb194-2"><a href="task-01.html#cb194-2" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
@@ -954,7 +954,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11 11 Nov  November
 ## 12 12 Dec  December</code></pre>
 <p>数据表的每一列是一个子列表。将几个长度相同的子列表并排放在一起，就组成了一个长方形的矩阵形式。这种特殊的处理使得数据表包含了两种数据形式的优势。列与列之间可以使用不同的基础数据类型，也就是说一列的数据是数值型的数据，下一列数据可以是字符型的数据。长方形的形状保证了列与列之间的数值是一一对应的，每一行都是一个观察量。这很符合日常会遇到的数据的形式。</p>
-<p><code>tibble</code>是<code>tidyverse</code>系列包中的<code>tibble</code>包提供的一种数据形式。使用<code>tibble</code>比较明显的好处是，当你把<code>tibble</code>打印在控制台里的时候，它有一个更干净直观的打印方式。与data frame试图打印所有的行、一股脑把所有信息扔给你不同，<code>tibble</code> 默认只会打印前几行给你一个数据长什么样的感觉，还会告诉你每一列的数据是什么类型的：</p>
+<p><code>tibble</code>是<code>tidyverse</code>系列包中的<code>tibble</code>包提供的一种数据形式。使用<code>tibble</code>比较明显的好处是，当你把<code>tibble</code>打印在控制台里的时候，它有一个更干净直观的打印方式。与 data frame 试图打印所有的行、一股脑把所有信息扔给你不同，<code>tibble</code> 默认只会打印前几行给你一个数据长什么样的感觉，还会告诉你每一列的数据是什么类型的：</p>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="task-01.html#cb196-1" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">b =</span> <span class="dv">101</span><span class="sc">:</span><span class="dv">200</span>)</span>
 <span id="cb196-2"><a href="task-01.html#cb196-2" aria-hidden="true" tabindex="-1"></a>tb</span></code></pre></div>
 <pre><code>## # A tibble: 100 x 2
@@ -1007,7 +1007,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1   101</code></pre>
 <div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="task-01.html#cb208-1" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>a</span>
 <span id="cb208-2"><a href="task-01.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="co">#太长了还是不显示了吧</span></span></code></pre></div>
-<p>tibble的另一个特性是其访问的子列表也是<code>tibble</code>类型的数据表，即使是用单引号返回一个格子的元素。</p>
+<p>tibble 的另一个特性是其访问的子列表也是<code>tibble</code>类型的数据表，即使是用单引号返回一个格子的元素。</p>
 <p>关于<code>tibble</code>更多信息，详见<a href="https://tibble.tidyverse.org/"><code>tibble</code>主页</a>。</p>
 </div>
 </div>
@@ -1031,7 +1031,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="表格类型数据csv-excel" class="section level3" number="1.5.2">
 <h3><span class="header-section-number">1.5.2</span> 表格类型数据（csv, excel)</h3>
-<p>h1n1流感问卷数据储存在名为“h1n1_flu.csv”的文件中，我们会在下一篇《数据清洗与准备》中用到。假设“h1n1_flu”有不同的储存类型，我们列举一些读写数据表类型数据的方法。</p>
+<p>h1n1 流感问卷数据储存在名为 “h1n1_flu.csv” 的文件中，我们会在下一篇《数据清洗与准备》中用到。假设 “h1n1_flu” 有不同的储存类型，我们列举一些读写数据表类型数据的方法。</p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="task-01.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 读取csv文件</span></span>
 <span id="cb212-2"><a href="task-01.html#cb212-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb212-3"><a href="task-01.html#cb212-3" aria-hidden="true" tabindex="-1"></a>h1n1_flu <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;h1n1_flu.csv&quot;</span>)</span>
@@ -1047,14 +1047,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb212-13"><a href="task-01.html#cb212-13" aria-hidden="true" tabindex="-1"></a>h1n1_flu <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(<span class="st">&quot;h1n1_flu.xls&quot;</span>)</span>
 <span id="cb212-14"><a href="task-01.html#cb212-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 读取xlsx文件</span></span>
 <span id="cb212-15"><a href="task-01.html#cb212-15" aria-hidden="true" tabindex="-1"></a>h1n1_flu <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;h1n1_flu.xlsx&quot;</span>)</span></code></pre></div>
-<p>不建议在R中直接编辑excel文件，csv文件应该满足日常所需了。如果有编辑excel文件的需求，可以看看<code>openxlsx</code>包。</p>
+<p>不建议在R中直接编辑 excel 文件，csv 文件应该满足日常所需了。如果有编辑 excel 文件的需求，可以看看<code>openxlsx</code>包。</p>
 </div>
 <div id="r的专属类型数据rdata-rds" class="section level3" number="1.5.3">
 <h3><span class="header-section-number">1.5.3</span> R的专属类型数据（RData, rds）</h3>
-<p>有一些数据存储方式是R中独有的。我们在这里讨论两类。一类是rds文件，一类是RData文件。</p>
+<p>有一些数据存储方式是R中独有的。我们在这里讨论两类。一类是 rds 文件，一类是 RData 文件。</p>
 <ol style="list-style-type: decimal">
-<li>rds文件储存一个R中的对象。这个对象不一定是四四方方的数据表，而可以是任何形式，包括复杂的列表等。因为他储存的是一个对象，所以读取的时候也是读取出来一个对象，需要被保存在一个名字下。</li>
-<li>RData储存的是一个或多个、任意结构的、带有自己名字的对象。读取的时候会将储存的对象直接载入当前的环境中，使用的是对象自己的名字，所以不需要再额外起名字。</li>
+<li>rds 文件储存一个R中的对象。这个对象不一定是四四方方的数据表，而可以是任何形式，包括复杂的列表等。因为他储存的是一个对象，所以读取的时候也是读取出来一个对象，需要被保存在一个名字下。</li>
+<li>RData 储存的是一个或多个、任意结构的、带有自己名字的对象。读取的时候会将储存的对象直接载入当前的环境中，使用的是对象自己的名字，所以不需要再额外起名字。</li>
 </ol>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="task-01.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 读取</span></span>
 <span id="cb213-2"><a href="task-01.html#cb213-2" aria-hidden="true" tabindex="-1"></a>h1n1_flu <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">&quot;h1n1_flu.rds&quot;</span>)</span>
@@ -1068,7 +1068,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="其他软件spss-stata-sas" class="section level3" number="1.5.4">
 <h3><span class="header-section-number">1.5.4</span> 其他软件（SPSS, Stata, SAS）</h3>
-<p>R也可以直接读取其他软件的数据类型。这里列举使用<code>haven</code>包读写SPSS的sav和zsav、Stata的dta、SAS的sas7bdat和sas7bcat。</p>
+<p>R也可以直接读取其他软件的数据类型。这里列举使用<code>haven</code>包读写 SPSS 的 sav 和 zsav、 Stata 的 dta、SAS 的 sas7bdat 和 sas7bcat。</p>
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="task-01.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
 <span id="cb214-2"><a href="task-01.html#cb214-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb214-3"><a href="task-01.html#cb214-3" aria-hidden="true" tabindex="-1"></a><span class="co"># SPSS</span></span>
