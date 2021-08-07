@@ -81,15 +81,11 @@ box-cox
 小拓展
 思考与练习
 task-03
-基础统计分析
-准备工作-1
 多种方法获取描述性统计量
 基础方法
 拓展包方法
 分组计算描述性统计
 基础方法-1
-使用aggregate分组获取描述性统计
-使用-by-分组计算描述性统计量
 频数表和列联表
 相关
 相关的类型
@@ -98,9 +94,7 @@ task-03
 单因素方差分析
 多因素方差分析
 task-04
-ggplot2包介绍
 环境配置-2
-案例数据-1
 散点图
 直方图
 柱状图
@@ -109,7 +103,6 @@ ggplot2包介绍
 ggplot2扩展包主题
 task-05
 前言
-回归模型
 linear-regression
 stepwise-regression
 分类模型
@@ -117,4 +110,3 @@ logistics-regression
 knn
 decision-tree
 random-forest
-思考与练习-1

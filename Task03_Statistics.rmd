@@ -14,8 +14,8 @@ library(ggm)
 
 读取数据，使用H1N1流感数据集和波士顿房价数据集。
 ```{r}
-flu = read.table('./datasets/h1n1_flu.csv', header=TRUE, sep=',')
-housing = read.csv('./datasets/BostonHousing.csv', header=TRUE)
+flu <- read.table("./datasets/h1n1_flu.csv", header = TRUE, sep = ",")
+housing <- read.csv("./datasets/BostonHousing.csv", header = TRUE)
 ```
 
 ## 多种方法获取描述性统计量
@@ -24,7 +24,7 @@ housing = read.csv('./datasets/BostonHousing.csv', header=TRUE)
 
 通过summary计算数值型变量的最大值、最小值、分位数以及均值，类别变量计算频数统计。
 ```{r}
-summary(flu[c("household_children","sex")])
+summary(flu[c("household_children", "sex")])
 ```
 ```{r}
 summary(flu[c("h1n1_concern", "h1n1_knowledge")])
@@ -33,15 +33,16 @@ summary(flu[c("h1n1_concern", "h1n1_knowledge")])
 
 通过 sapply() 计算描述性统计量，先定义统计函数，在进行聚合计算。
 ```{r}
-mystats <- function(x, na.omit=FALSE){
-if (na.omit)
-x <- x[!is.na(x)]
-m <- mean(x)
-n <- length(x)
-s <- sd(x)
-skew <- sum((x-m)^3/s^3)/n
-kurt <- sum((x-m)^4/s^4)/n - 3
-return(c(n=n, mean=m, stdev=s, skew=skew, kurtosis=kurt))
+mystats <- function(x, na.omit = FALSE) {
+  if (na.omit) {
+    x <- x[!is.na(x)]
+  }
+  m <- mean(x)
+  n <- length(x)
+  s <- sd(x)
+  skew <- sum((x - m)^3 / s^3) / n
+  kurt <- sum((x - m)^4 / s^4) / n - 3
+  return(c(n = n, mean = m, stdev = s, skew = skew, kurtosis = kurt))
 }
 
 sapply(flu[c("h1n1_concern", "h1n1_knowledge")], mystats)
@@ -51,11 +52,11 @@ sapply(flu[c("h1n1_concern", "h1n1_knowledge")], mystats)
 
 通过pastecs包中的 stat.desc()函数计算描述性统计量，可以得到中位数、平均数、平均数的标准误、平均数置信度为95%的置信区间、方差、标准差以及变异系数。
 ```{r}
-stat.desc(flu[c("household_children","sex")])
+stat.desc(flu[c("household_children", "sex")])
 ```
 通过psych包中的describe()计算描述性统计量。
 ```{r}
-describe(flu[c("household_children","sex")])
+describe(flu[c("household_children", "sex")])
 ```
 
 ## 分组计算描述性统计
@@ -67,8 +68,8 @@ describe(flu[c("household_children","sex")])
 1. 分组计算不同性别收入贫困计数。
 2. 是否属于查尔斯河的房价中位数平均值。
 ```{r}
-aggregate(flu[c("income_poverty")], by=list(sex=flu$sex), length)
-aggregate(housing$medv, by=list(medv=housing$chas), FUN=mean)
+aggregate(flu[c("income_poverty")], by = list(sex = flu$sex), length)
+aggregate(housing$medv, by = list(medv = housing$chas), FUN = mean)
 ```
 
 #### 使用 by() 分组计算描述性统计量 {-}
@@ -95,7 +96,7 @@ cor(housing)
 
 2. 指定计算Spearman相关系数
 ```{r}
-cor(housing, method="spearman")
+cor(housing, method = "spearman")
 ```
 
 3. 城镇人均犯罪率与房价的相关系数
@@ -112,7 +113,7 @@ cor(x, y)
 ### 相关性的显著性检验
 
 ```{r}
-cor.test(housing[,c("crim")], housing[,c("medv")])
+cor.test(housing[, c("crim")], housing[, c("medv")])
 ```
 
 ## 方差分析
@@ -128,7 +129,7 @@ summary(fit)
 ### 多因素方差分析
 构建多因素方差分析，查看因子对房价的影响是否显著。
 ```{r}
-fit <- aov(housing$medv ~ housing$crim*housing$b)
+fit <- aov(housing$medv ~ housing$crim * housing$b)
 summary(fit)
 ```
 
@@ -144,5 +145,6 @@ __杨佳达__
 
 Datawhale 是一个专注于数据科学与AI领域的开源组织，汇集了众多领域院校和知名企业的优秀学习者，聚合了一群有开源精神和探索精神的团队成员。Datawhale 以“for the learner，和学习者一起成长”为愿景，鼓励真实地展现自我、开放包容、互信互助、敢于试错和勇于担当。同时 Datawhale 用开源的理念去探索开源内容、开源学习和开源方案，赋能人才培养，助力人才成长，建立起人与人，人与知识，人与企业和人与未来的联结。 本次数据挖掘路径学习，专题知识将在天池分享，详情可关注 Datawhale：
 
-[![logo.png](https://camo.githubusercontent.com/8578ee173c78b587d5058439bbd0b98fa39c173def229a8c3d957e62aac0b649/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f323032303039313330313032323639382e706e67237069635f63656e746572)](https://camo.githubusercontent.com/8578ee173c78b587d5058439bbd0b98fa39c173def229a8c3d957e62aac0b649/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f323032303039313330313032323639382e706e67237069635f63656e746572)
-
+```{r, echo = FALSE}
+insert_logo()
+```

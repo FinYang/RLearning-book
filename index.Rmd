@@ -4,16 +4,18 @@ author: "张晋、杨佳达、牧小熊、杨杨卓然、姚昱君"
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
+knit: (function(inputFile, ...) {
+  bookdown::render_book(inputFile, output_format = "all", ...) })
 ---
 
 
-```{r setup}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
                       warning=FALSE, 
                       message=FALSE,
-                      tidy=TRUE,
                       collapse=FALSE, 
-                      eval = TRUE)
+                      eval = TRUE, 
+                      cache = TRUE)
 
 Sys.setlocale(locale = "Chinese")
 ```
@@ -26,13 +28,29 @@ Sys.setlocale(locale = "Chinese")
 
 ## 贡献者信息 {-}
 
-| 姓名   | 介绍                            | 个人主页                        |
-| ------ | ------------------------------- | ------------------------------- |
-| 张晋 |  Datawhale成员，算法竞赛爱好者 | https://blog.csdn.net/weixin_44585839/ |
-| 杨佳达 | 数据挖掘师，Datawhale成员，目前在国内某第三方数据服务公司做数据分析挖掘及数据产品 | https://github.com/yangjiada |
-| 牧小熊 | 华中农业大学研究生，Datawhale成员，Datawhale优秀原创作者 | https://www.zhihu.com/people/muxiaoxiong                           |
-| 杨杨卓然 | 混吃等死统计休学穷酸书生                                | https://yangzhuoranyang.com  |
-| 姚昱君 | 悉尼大学，Datawhale成员     | https://blog.csdn.net/Yao_June |
+<!-- | 姓名   | 介绍                            | 个人主页                        | -->
+<!-- | ------ | ------------------------------- | ------------------------------- | -->
+<!-- | 张晋 |  Datawhale成员，算法竞赛爱好者 | https://blog.csdn.net/weixin_44585839/ | -->
+<!-- | 杨佳达 | 数据挖掘师，Datawhale成员，目前在国内某第三方数据服务公司做数据分析挖掘及数据产品 | https://github.com/yangjiada | -->
+<!-- | 牧小熊 | 华中农业大学研究生，Datawhale成员，Datawhale优秀原创作者 | https://www.zhihu.com/people/muxiaoxiong| -->
+<!-- | 杨杨卓然 | 混吃等死统计休学穷酸书生                                | https://yangzhuoranyang.com  | -->
+<!-- | 姚昱君 | 悉尼大学，Datawhale成员     | https://blog.csdn.net/Yao_June | -->
+
+```{r, echo = FALSE, eval = TRUE}
+library(tidyverse)
+do.call(tibble::tribble, c(
+  ~姓名, ~介绍, ~个人主页, 
+  "张晋", "Datawhale成员，算法竞赛爱好者", "https://blog.csdn.net/weixin_44585839/" ,
+  
+  "杨佳达", "数据挖掘师，Datawhale成员，目前在国内某第三方数据服务公司做数据分析挖掘及数据产品", "https://github.com/yangjiada", 
+  
+  "牧小熊", "华中农业大学研究生，Datawhale成员，Datawhale优秀原创作者", "https://www.zhihu.com/people/muxiaoxiong",
+  
+  "杨杨卓然", "混吃等死统计休学穷酸书生", "https://yangzhuoranyang.com", 
+  "姚昱君", "悉尼大学，Datawhale成员", "https://blog.csdn.net/Yao_June"))  %>% 
+  knitr::kable()
+
+```
 
 
 ## 课程简介 {-}
@@ -93,10 +111,16 @@ Sys.setlocale(locale = "Chinese")
 
 ## 关于 Datawhale {-} 
 
+
 Datawhale 是一个专注于数据科学与AI领域的开源组织，汇集了众多领域院校和知名企业的优秀学习者，聚合了一群有开源精神和探索精神的团队成员。Datawhale 以 “For the learner，和学习者一起成长” 为愿景，鼓励真实地展现自我、开放包容、互信互助、敢于试错和勇于担当。同时 Datawhale  用开源的理念去探索开源内容、开源学习和开源方案，赋能人才培养，助力人才成长，建立起人与人，人与知识，人与企业和人与未来的联结。 本次数据挖掘路径学习，专题知识将在天池分享，详情可关注 Datawhale：
 
-![](https://camo.githubusercontent.com/8578ee173c78b587d5058439bbd0b98fa39c173def229a8c3d957e62aac0b649/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f323032303039313330313032323639382e706e67237069635f63656e746572)
+```{r, echo = FALSE}
 
+insert_logo <- function(){
+  knitr::include_graphics("image/logo.png")
+}
+insert_logo()
+```
 
 
 

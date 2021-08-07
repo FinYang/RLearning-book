@@ -8,3 +8,6 @@ language:
   ui:
     edit: "编辑"
     chapter_name: ["第 ", " 章"]
+    
+view: https://github.com/FinYang/RLearning-book/blob/main/%s
+

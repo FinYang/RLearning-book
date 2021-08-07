@@ -24,9 +24,9 @@ data(BostonHousing)
 set.seed(2021)
 
 # 生成训练集的索引，用来划分训练集和测试集
-train_index <- sample(dim(BostonHousing)[1],0.7*dim(BostonHousing)[1])
-BostonHousingTrain <- BostonHousing[train_index,]
-BostonHousingTest <- BostonHousing[-train_index,]
+train_index <- sample(dim(BostonHousing)[1], 0.7 * dim(BostonHousing)[1])
+BostonHousingTrain <- BostonHousing[train_index, ]
+BostonHousingTest <- BostonHousing[-train_index, ]
 
 # 查看数据集的size
 dim(BostonHousing)
@@ -50,7 +50,7 @@ names(BostonHousing)
 
 ```{r }
 # 构建模型，medv~.表示回归方程
-lr_model <- lm(medv~.,data=BostonHousingTrain)
+lr_model <- lm(medv ~ ., data = BostonHousingTrain)
 
 # summary输出模型汇总
 summary(lr_model)
@@ -64,7 +64,7 @@ plot(lr_model)
 `predict`命令能够基于已经训练好的模型进行预测。
 ```{r }
 # 根据模型对新数据进行预测
-BostonHousingTest$lr_pred <- predict(lr_model,newdata = BostonHousingTest)
+BostonHousingTest$lr_pred <- predict(lr_model, newdata = BostonHousingTest)
 ```
 
 ### Stepwise Regression
@@ -74,7 +74,7 @@ BostonHousingTest$lr_pred <- predict(lr_model,newdata = BostonHousingTest)
 
 ```{r }
 # both逐步回归
-step_model <- step(lr_model,direction="both")
+step_model <- step(lr_model, direction = "both")
 summary(step_model)
 ```
 
@@ -86,23 +86,23 @@ summary(step_model)
 
 ```{r }
 # 将连续变量转化成二分类变量
-BostonHousing$medv <- as.factor(ifelse(BostonHousing$medv > median(BostonHousing$medv),1,0))
+BostonHousing$medv <- as.factor(ifelse(BostonHousing$medv > median(BostonHousing$medv), 1, 0))
 # 查看两种变量类别的数量
 summary(BostonHousing$medv)
 
 # 使用相同的种子值，复现训练集合测试集的划分
 set.seed(2021)
-train_index <- sample(dim(BostonHousing)[1],0.7*dim(BostonHousing)[1])
-BostonHousingTrain <- BostonHousing[train_index,]
-BostonHousingTest <- BostonHousing[-train_index,]
+train_index <- sample(dim(BostonHousing)[1], 0.7 * dim(BostonHousing)[1])
+BostonHousingTrain <- BostonHousing[train_index, ]
+BostonHousingTest <- BostonHousing[-train_index, ]
 ```
 
 同时引入两个计算函数，用来计算AUC指标值。
 ```{r }
 # 引入auc计算函数
-library('ROCR')
-calcAUC <-function(predcol,outcol) {
-  perf <-performance(prediction(predcol,outcol==1),'auc')
+library("ROCR")
+calcAUC <- function(predcol, outcol) {
+  perf <- performance(prediction(predcol, outcol == 1), "auc")
   as.numeric(perf@y.values)
 }
 ```
@@ -114,16 +114,16 @@ calcAUC <-function(predcol,outcol) {
 
 ```{r }
 # 逻辑回归模型构建
-lr_model <-glm(medv~., data=BostonHousingTrain, family=binomial(link="logit"))
+lr_model <- glm(medv ~ ., data = BostonHousingTrain, family = binomial(link = "logit"))
 summary(lr_model)
 
 # 分别对训练集和测试集进行预测
-lr_pred_train <- predict(lr_model, newdata=BostonHousingTrain, type="response")
-lr_pred_test <- predict(lr_model, newdata=BostonHousingTest, type="response")
+lr_pred_train <- predict(lr_model, newdata = BostonHousingTrain, type = "response")
+lr_pred_test <- predict(lr_model, newdata = BostonHousingTest, type = "response")
 
 # 计算训练集和测试集的auc
-calcAUC(lr_pred_train,BostonHousingTrain$medv)
-calcAUC(lr_pred_test,BostonHousingTest$medv)
+calcAUC(lr_pred_train, BostonHousingTrain$medv)
+calcAUC(lr_pred_test, BostonHousingTest$medv)
 ```
 
 
@@ -138,11 +138,11 @@ KNN模型较难的一点是确定超参数K，目前有一些指标和经验方�
 library(kknn)
 
 # 构建knn模型
-knn <- kknn(medv~., BostonHousingTrain, BostonHousingTest,k = 25)
+knn <- kknn(medv ~ ., BostonHousingTrain, BostonHousingTest, k = 25)
 
 # 预测并计算测试集上的auc取值
-knn_pred_test <- predict(knn, newdata=BostonHousingTest)
-calcAUC(as.numeric(knn_pred_test),BostonHousingTest$medv)
+knn_pred_test <- predict(knn, newdata = BostonHousingTest)
+calcAUC(as.numeric(knn_pred_test), BostonHousingTest$medv)
 ```
 
 
@@ -156,24 +156,24 @@ library(tree)
 
 # 构建决策树模型函数，medv~.是决策树公式，用来表明变量。
 # summary输出模型汇总信息
-dt_model <- tree(medv~., BostonHousingTrain)
+dt_model <- tree(medv ~ ., BostonHousingTrain)
 summary(dt_model)
 
 # plot可以对树模型进行绘制，但可能会出现书分支过多的情况。
 plot(dt_model)
-text(dt_model)  
+text(dt_model)
 ```
 
 在构建决策树模型的基础上，分别对训练集和测试集进行预测并计算auc取值。该模型在训练集上的auc取值为0.9281874，在测试集上的auc取值为0.8789199。训练集和测试集间存在抖动，说明该模型可能出现过拟合。我们需要引入剪枝的操作来降低模型的过拟合，这部分供同学们自学。
 
 ```{r }
 # 预测
-dt_pred_train <- predict(dt_model, newdata=BostonHousingTrain, type="class")
-dt_pred_test <- predict(dt_model, newdata=BostonHousingTest, type="class")
+dt_pred_train <- predict(dt_model, newdata = BostonHousingTrain, type = "class")
+dt_pred_test <- predict(dt_model, newdata = BostonHousingTest, type = "class")
 
 # 计算auc取值
-calcAUC(as.numeric(dt_pred_train),BostonHousingTrain$medv)
-calcAUC(as.numeric(dt_pred_test),BostonHousingTest$medv)
+calcAUC(as.numeric(dt_pred_train), BostonHousingTrain$medv)
+calcAUC(as.numeric(dt_pred_test), BostonHousingTest$medv)
 ```
 
 
@@ -185,20 +185,20 @@ calcAUC(as.numeric(dt_pred_test),BostonHousingTest$medv)
 
 ```{r }
 # 导入随机森林包
-library(randomForest)  
+library(randomForest)
 
 # 随机森林模型
-rf_model <- randomForest(medv~., BostonHousingTrain,ntree=100,nodesize=10,importance=T)
+rf_model <- randomForest(medv ~ ., BostonHousingTrain, ntree = 100, nodesize = 10, importance = T)
 # 展示模型变量的重要性
 importance(rf_model)
 
 # 预测
-rf_pred_train <- predict(rf_model, newdata=BostonHousingTrain, type="class")
-rf_pred_test <- predict(rf_model, newdata=BostonHousingTest, type="class")
+rf_pred_train <- predict(rf_model, newdata = BostonHousingTrain, type = "class")
+rf_pred_test <- predict(rf_model, newdata = BostonHousingTest, type = "class")
 
 # 计算auc取值
-calcAUC(as.numeric(rf_pred_train),BostonHousingTrain$medv)
-calcAUC(as.numeric(rf_pred_test),BostonHousingTest$medv)
+calcAUC(as.numeric(rf_pred_train), BostonHousingTrain$medv)
+calcAUC(as.numeric(rf_pred_test), BostonHousingTest$medv)
 ```
 
 ## 思考与练习 {-}
@@ -219,5 +219,6 @@ __张晋__
 
 Datawhale 是一个专注于数据科学与AI领域的开源组织，汇集了众多领域院校和知名企业的优秀学习者，聚合了一群有开源精神和探索精神的团队成员。Datawhale 以“for the learner，和学习者一起成长”为愿景，鼓励真实地展现自我、开放包容、互信互助、敢于试错和勇于担当。同时 Datawhale 用开源的理念去探索开源内容、开源学习和开源方案，赋能人才培养，助力人才成长，建立起人与人，人与知识，人与企业和人与未来的联结。 本次数据挖掘路径学习，专题知识将在天池分享，详情可关注 Datawhale：
 
-[![logo.png](https://camo.githubusercontent.com/8578ee173c78b587d5058439bbd0b98fa39c173def229a8c3d957e62aac0b649/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f323032303039313330313032323639382e706e67237069635f63656e746572)](https://camo.githubusercontent.com/8578ee173c78b587d5058439bbd0b98fa39c173def229a8c3d957e62aac0b649/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f323032303039313330313032323639382e706e67237069635f63656e746572)
-
+```{r, echo = FALSE}
+insert_logo()
+```
