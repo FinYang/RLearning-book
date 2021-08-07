@@ -137,8 +137,8 @@ summary(fit)
 
 __杨佳达__
 
-> 数据挖掘师，Datawhale成员，目前在国内某第三方数据服务公司做数据分析挖掘及数据产品
-
+> 数据挖掘师，Datawhale成员，目前在国内某第三方数据服务公司做数据分析挖掘及数据产品  
+> https://github.com/yangjiada
 
 ## 关于Datawhale {-}
 

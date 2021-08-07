@@ -82,7 +82,7 @@ h1n1_data_de_dup2 <- distinct(h1n1_data, respondent_id, h1n1_knowledge, .keep_al
 
 #### 常用识别方法
 
-在R语言中，惯用会把缺失值表示为NA，一般可使用`is.nan(a)`，`!complete.cases(a)`来识别`a`是否为缺失值。
+在R语言中，惯用会把缺失值表示为NA，一般可使用`is.na(a)`，`!complete.cases(a)`来识别`a`是否为缺失值。
 ```{r }
 # 假设定义的一个变量中存在缺失值
 y <- c(1, 2, 3, NA)
@@ -602,7 +602,8 @@ R中数据集分割：https://zhuanlan.zhihu.com/p/45163182
 
 __June__
 
-> 悉尼大学研究生，Datawhale成员
+> 悉尼大学研究生，Datawhale成员  
+> https://blog.csdn.net/Yao_June
 
 
 ## 关于Datawhale {-}
