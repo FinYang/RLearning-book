@@ -4,7 +4,7 @@
 
 ![](./image/task04_structure.png){width=60%}
 
-## 0.ggplot2包介绍
+## ggplot2包介绍 {-}
 
 ggplot2包由Hadley Wickham编写，提供了一种基于Wilkinson所述图形语法的图形系统。ggplot2包的目标是提供一个全面的、基于语法的、连贯一致的图形生成系统，允许用户创建新颖的、有创新性的数据可视化图形。
 
@@ -42,7 +42,7 @@ ggplot2的安装方法
 #install.packages("ggplot2")
 ```
 
-## 1.环境配置
+## 环境配置
 ``` {r}
 library(ggplot2) #画图工具ggplot2
 library(ggpubr) #将多个图形拼接
@@ -52,7 +52,7 @@ library(plyr) #数据处理包
 在本讲中会用到ggpubr中的ggrrange这个多图拼接工具，详细使用方法参见：
 http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/81-ggplot2-easy-way-to-mix-multiple-graphs-on-the-same-page/
 
-## 案例数据
+### 案例数据 {-}
 本节内容将会使用到两个数据集
 
 **1.1h1n1流感问卷数据集**
@@ -75,7 +75,7 @@ boston_data <- read.csv("./datasets/BostonHousing.csv", header = TRUE)
 ```
 
 
-## 2.散点图
+## 散点图
 
 散点图是指在数理统计回归分析中，数据点在直角坐标系平面上的分布图，散点图表示因变量随自变量而变化的大致趋势，由此趋势可以选择合适的函数进行经验分布的拟合，进而找到变量之间的函数关系。
 
@@ -117,7 +117,7 @@ ggarrange(p3,p4,nrow = 1)
 
 ggplot2关于散点图的相关做法有很详细的介绍，相关参考链接：https://ggplot2.tidyverse.org/reference/geom_point.html
 
-## 3.直方图
+## 直方图
 
 直方图是一种统计报告图，由一系列高度不等的纵向条纹或线段表示数据分布的情况。 一般用横轴表示数据类型，纵轴表示分布情况。
 直方图可以很好的查看数据的分布情况，是常用的数据可视化展示图形。
@@ -150,7 +150,7 @@ ggarrange(p7,p8,nrow = 1)
 
 ggplot2关于直方图的相关做法有很详细的介绍，相关参考链接：https://ggplot2.tidyverse.org/reference/geom_histogram.html
 
-## 4.柱状图
+## 柱状图
 柱状图是一种常用的数据可视化图形，根据翻译的不同，柱状图又叫长条图、柱状统计图、条状图、棒形图
 柱状图图用来比较两个或以上的价值（不同时间或者不同条件），只有一个变量，通常利用于较小的数据集分析。长条图亦可横向排列，或用多维方式表达。需要注意的是柱状图与直方图是不同的数据可视化方法，不要弄混淆了。
 
@@ -216,7 +216,7 @@ ggplot(data,aes(x=race,y=freq))+geom_bar(stat="identity", fill="steelblue")+them
 ggplot2关于柱状图的相关做法有很详细的介绍，相关参考链接：
 https://ggplot2.tidyverse.org/reference/geom_bar.html
 
-## 5.饼状图
+## 饼状图
 
 饼状图作为常用的数据可视化图形之一，广泛的使用在各个领域，能够很清楚展示数据的所占的百分比。
 ggplot2并没有类似于geom_pie()这样的函数实现饼图的绘制，但ggplot2有一个理念，就是通过极坐标变换绘制饼图
@@ -278,7 +278,7 @@ ggplot(data = data, aes(x ='', y = freq, fill = race)) +
   geom_text(aes(label = label), size=3, position = position_stack(vjust = 0.5))  
 ```
 
-## 6.折线图
+## 折线图
 折线图作为反映数据变化的趋势是常用的数据可视化图形之一，在ggplot2中通过geom_line()这个函数进行绘制。
 
 对波士顿房价中rad进行可视化展示，使用pylr包中的count对edcation进行计数统计
@@ -314,7 +314,7 @@ ggplt2关于折线图的相关做法的参考链接：
 https://ggplot2.tidyverse.org/reference/geom_abline.html
 
 
-## 7.ggplot2扩展包主题
+## ggplot2扩展包主题
 R语言中的ggplot2包里面的风格固定，在需要特殊的图形时，需要更改甚至自定义设置主题。
 ggplot2内置了8种风格的主题
 
@@ -382,15 +382,17 @@ ggarrange(p3,p4,nrow = 1)
 
 ggplot2是一个非常经典的数据可视化R包，内容非常丰富，由于篇幅的原因没办法将ggplot2中的各种方法全部讲述，因此选择了几个常见的图形进行相关的讲解，以期达到抛砖引玉的效果。如果对ggplot2感兴趣的同学，可以去官网进行更加详细的学习，也非常期待大家的数据可视化作品~
 
-**Task4  END.**
+## 本章作者 {-}
 
 
-By: 牧小熊
+__牧小熊__
 
 > 华中农业大学研究生，Datawhale成员, Datawhale优秀原创作者
 >
 > 知乎：https://www.zhihu.com/people/muxiaoxiong
 
-关于Datawhale： Datawhale是一个专注于数据科学与AI领域的开源组织，汇集了众多领域院校和知名企业的优秀学习者，聚合了一群有开源精神和探索精神的团队成员。Datawhale 以“for the learner，和学习者一起成长”为愿景，鼓励真实地展现自我、开放包容、互信互助、敢于试错和勇于担当。同时 Datawhale 用开源的理念去探索开源内容、开源学习和开源方案，赋能人才培养，助力人才成长，建立起人与人，人与知识，人与企业和人与未来的联结。 本次数据挖掘路径学习，专题知识将在天池分享，详情可关注Datawhale：
+## 关于Datawhale {-}
+
+Datawhale是一个专注于数据科学与AI领域的开源组织，汇集了众多领域院校和知名企业的优秀学习者，聚合了一群有开源精神和探索精神的团队成员。Datawhale 以“for the learner，和学习者一起成长”为愿景，鼓励真实地展现自我、开放包容、互信互助、敢于试错和勇于担当。同时 Datawhale 用开源的理念去探索开源内容、开源学习和开源方案，赋能人才培养，助力人才成长，建立起人与人，人与知识，人与企业和人与未来的联结。 本次数据挖掘路径学习，专题知识将在天池分享，详情可关注Datawhale：
 
 [![logo.png](https://camo.githubusercontent.com/8578ee173c78b587d5058439bbd0b98fa39c173def229a8c3d957e62aac0b649/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f323032303039313330313032323639382e706e67237069635f63656e746572)](https://camo.githubusercontent.com/8578ee173c78b587d5058439bbd0b98fa39c173def229a8c3d957e62aac0b649/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f323032303039313330313032323639382e706e67237069635f63656e746572)
