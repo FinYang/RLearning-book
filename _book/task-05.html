@@ -183,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.4.1" data-path="task-01.html"><a href="task-01.html#矩阵matrix"><i class="fa fa-check"></i><b>1.4.1</b> 矩阵（matrix）</a></li>
 <li class="chapter" data-level="1.4.2" data-path="task-01.html"><a href="task-01.html#列表list"><i class="fa fa-check"></i><b>1.4.2</b> 列表（list）</a></li>
-<li class="chapter" data-level="1.4.3" data-path="task-01.html"><a href="task-01.html#数据表data-frame与tibble"><i class="fa fa-check"></i><b>1.4.3</b> 数据表（data frame与tibble）</a></li>
+<li class="chapter" data-level="1.4.3" data-path="task-01.html"><a href="task-01.html#数据表data-frame-与-tibble"><i class="fa fa-check"></i><b>1.4.3</b> 数据表（data frame 与 tibble）</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="task-01.html"><a href="task-01.html#读写数据"><i class="fa fa-check"></i><b>1.5</b> 读写数据</a>
 <ul>
@@ -335,8 +335,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 152  14</code></pre>
 <div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="task-05.html#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 查看数据集包含的变量名称</span></span>
 <span id="cb356-2"><a href="task-05.html#cb356-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(BostonHousing)</span></code></pre></div>
-<pre><code>##  [1] &quot;crim&quot;    &quot;zn&quot;      &quot;indus&quot;   &quot;chas&quot;    &quot;nox&quot;     &quot;rm&quot;      &quot;age&quot;     &quot;dis&quot;     &quot;rad&quot;     &quot;tax&quot;     &quot;ptratio&quot;
-## [12] &quot;b&quot;       &quot;lstat&quot;   &quot;medv&quot;</code></pre>
+<pre><code>##  [1] &quot;crim&quot;    &quot;zn&quot;      &quot;indus&quot;   &quot;chas&quot;    &quot;nox&quot;     &quot;rm&quot;      &quot;age&quot;     &quot;dis&quot;    
+##  [9] &quot;rad&quot;     &quot;tax&quot;     &quot;ptratio&quot; &quot;b&quot;       &quot;lstat&quot;   &quot;medv&quot;</code></pre>
 </div>
 <div id="回归模型" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> 2 回归模型</h2>
@@ -509,9 +509,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.3</span> 3 分类模型</h2>
 <p>在进行分类模型前，我们需要构建分类标签。我们使用<code>medv</code>的中位数进行划分，其中1表示高房价，0表示低房价。通过这样的转化将原本的数值型变量转化为二元标签。并使用相同的种子值划分测试集和训练集。</p>
 <div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="task-05.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 将连续变量转化成二分类变量</span></span>
-<span id="cb366-2"><a href="task-05.html#cb366-2" aria-hidden="true" tabindex="-1"></a>BostonHousing<span class="sc">$</span>medv <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="fu">ifelse</span>(BostonHousing<span class="sc">$</span>medv <span class="sc">&gt;</span> <span class="fu">median</span>(BostonHousing<span class="sc">$</span>medv), <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb366-3"><a href="task-05.html#cb366-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 查看两种变量类别的数量</span></span>
-<span id="cb366-4"><a href="task-05.html#cb366-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(BostonHousing<span class="sc">$</span>medv)</span></code></pre></div>
+<span id="cb366-2"><a href="task-05.html#cb366-2" aria-hidden="true" tabindex="-1"></a>BostonHousing<span class="sc">$</span>medv <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="fu">ifelse</span>(BostonHousing<span class="sc">$</span>medv <span class="sc">&gt;</span> <span class="fu">median</span>(BostonHousing<span class="sc">$</span>medv), <span class="dv">1</span>,</span>
+<span id="cb366-3"><a href="task-05.html#cb366-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>))</span>
+<span id="cb366-4"><a href="task-05.html#cb366-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 查看两种变量类别的数量</span></span>
+<span id="cb366-5"><a href="task-05.html#cb366-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(BostonHousing<span class="sc">$</span>medv)</span></code></pre></div>
 <pre><code>##   0   1 
 ## 256 250</code></pre>
 <div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="task-05.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用相同的种子值，复现训练集合测试集的划分</span></span>
@@ -604,7 +605,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Classification tree:
 ## tree(formula = medv ~ ., data = BostonHousingTrain)
 ## Variables actually used in tree construction:
-##  [1] &quot;lstat&quot;   &quot;rm&quot;      &quot;crim&quot;    &quot;ptratio&quot; &quot;b&quot;       &quot;tax&quot;     &quot;dis&quot;     &quot;age&quot;     &quot;nox&quot;     &quot;zn&quot;     
+##  [1] &quot;lstat&quot;   &quot;rm&quot;      &quot;crim&quot;    &quot;ptratio&quot; &quot;b&quot;       &quot;tax&quot;     &quot;dis&quot;     &quot;age&quot;    
+##  [9] &quot;nox&quot;     &quot;zn&quot;     
 ## Number of terminal nodes:  20 
 ## Residual mean deviance:  0.2984 = 99.66 / 334 
 ## Misclassification error rate: 0.07062 = 25 / 354</code></pre>

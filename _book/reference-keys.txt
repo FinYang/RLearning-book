@@ -38,7 +38,7 @@ transform
 列表list
 访问子列表
 列表命名
-数据表data-frame与tibble
+数据表data-frame-与-tibble
 访问数据表内容
 读写数据
 内置数据集
@@ -129,4 +129,3 @@ knn
 decision-tree
 random-forest
 思考与练习-1
-数据表data-frame-与-tibble
