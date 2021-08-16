@@ -736,6 +736,8 @@ data(package = "dplyr")
 # 载入AirPassengers数据集
 data("AirPassengers")
 
+# 使用 tidyverse 中的数据探查函数
+# library(tidyverse)
 glimpse(AirPassengers)
 
 ```
