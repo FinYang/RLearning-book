@@ -744,17 +744,34 @@ glimpse(AirPassengers)
 
 ### 表格类型数据（csv, excel)
 
+在这次组队学习中我们用到的数据集都可以从 GitHub 上下载（https://github.com/datawhalechina/team-learning-program/tree/master/RLanguage/datasets）。
+
+如果你对 GitHub 的使用不熟悉，可以使用以下代码来下载 “h1n1_flu.csv”。
+
+```{r， eval = FALSE}
+download.file(
+  "https://raw.githubusercontent.com/datawhalechina/team-learning-program/master/RLanguage/datasets/h1n1_flu.csv", 
+  destfile = "h1n1_flu.csv", method = "curl"
+)
+
+```
+在之后的学习中如果你需要下载其他文件的话，只需将上面的链接最后的文件名以及 destfile 的值改为相应的文件即可。
+
+
 h1n1 流感问卷数据储存在名为 “h1n1_flu.csv” 的文件中，我们会在下一篇《数据清洗与准备》中用到。假设 “h1n1_flu" 有不同的储存类型，我们列举一些读写数据表类型数据的方法。
 
 ```{r, eval = FALSE}
-
 # 读取csv文件
 library(readr)
 h1n1_flu <- read_csv("h1n1_flu.csv")
 # 保存csv文件
 write_csv(h1n1_flu, "h1n1_flu.csv")
+```
 
 
+假如 “h1n1_flu" 有excel的储存格式的话，我们可以用以下代码来读取。
+
+```{r, eval = FALSE}
 # 读取excel文件
 library(readxl)
 # 自动识别文件后缀
@@ -777,15 +794,15 @@ h1n1_flu <- read_xlsx("h1n1_flu.xlsx")
 
 
 ```{r, eval = FALSE}
-# 读取
-h1n1_flu <- read_rds("h1n1_flu.rds")
 # 存储
 write_rds(h1n1_flu, "h1n1_flu.rds")
-
 # 读取
-load("h1n1_flu.RData")
+h1n1_flu <- read_rds("h1n1_flu.rds")
+
 # 存储
 save(h1n1_flu, file = "h1n1_flu.RData")
+# 读取
+load("h1n1_flu.RData")
 ```
 
 
