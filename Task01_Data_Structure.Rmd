@@ -748,13 +748,14 @@ glimpse(AirPassengers)
 
 如果你对 GitHub 的使用不熟悉，可以使用以下代码来下载 “h1n1_flu.csv”。
 
-```{r， eval = FALSE}
+```{r, eval = FALSE}
 download.file(
   "https://raw.githubusercontent.com/datawhalechina/team-learning-program/master/RLanguage/datasets/h1n1_flu.csv", 
   destfile = "h1n1_flu.csv", method = "curl"
 )
 
 ```
+
 在之后的学习中如果你需要下载其他文件的话，只需将上面的链接最后的文件名以及 destfile 的值改为相应的文件即可。
 
 
