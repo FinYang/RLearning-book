@@ -147,7 +147,7 @@ aggr(h1n1_data, cex.axis = .6, oma = c(9, 5, 5, 1)) # cex.axis调整轴字体大
 
 通过用`VIM`包里的矩阵图`matrixplot()`函数，可以检查某些变量的缺失值模式是否与其他变量的真实值有关联。矩阵图中，观测数据以黑白色阶显示（颜色越深，数值越高），缺失值会被标记为红色。我们对某一个存在缺失值的变量进行排序，来找寻含缺失值变量与其他变量的关系。
 
-在此案例中，我们按照`health_insurance`进行分组排序。可以看到是否有慢性病`chronic_med_condition`的缺失，与`opinion_h1n1_vacc_effective`的缺失相对较集中。除此之外，也可以看到有慢性病的人年龄普遍较大。
+在此案例中，我们按照`chronic_med_condition`进行分组排序。可以看到是否有慢性病`chronic_med_condition`的缺失，与`opinion_h1n1_vacc_effective`的缺失相对较集中。除此之外，也可以看到有慢性病的人年龄普遍较大。
 
 ```{r }
 # 先简单处理一下一些类别变量的顺序

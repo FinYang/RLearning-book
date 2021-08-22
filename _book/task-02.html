@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第 2 章 数据清洗与准备 | R语言数据分析组队学习</title>
   <meta name="description" content="第 2 章 数据清洗与准备 | R语言数据分析组队学习" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="第 2 章 数据清洗与准备 | R语言数据分析组队学习" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,8 @@
   
 <link rel="prev" href="task-01.html"/>
 <link rel="next" href="task-03.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -514,7 +514,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="task-02.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggr</span>(h1n1_data, <span class="at">cex.axis =</span> .<span class="dv">6</span>, <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1</span>)) <span class="co"># cex.axis调整轴字体大小，oma调整外边框大小</span></span></code></pre></div>
 <p><img src="RLearning_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 <p>通过用<code>VIM</code>包里的矩阵图<code>matrixplot()</code>函数，可以检查某些变量的缺失值模式是否与其他变量的真实值有关联。矩阵图中，观测数据以黑白色阶显示（颜色越深，数值越高），缺失值会被标记为红色。我们对某一个存在缺失值的变量进行排序，来找寻含缺失值变量与其他变量的关系。</p>
-<p>在此案例中，我们按照<code>health_insurance</code>进行分组排序。可以看到是否有慢性病<code>chronic_med_condition</code>的缺失，与<code>opinion_h1n1_vacc_effective</code>的缺失相对较集中。除此之外，也可以看到有慢性病的人年龄普遍较大。</p>
+<p>在此案例中，我们按照<code>chronic_med_condition</code>进行分组排序。可以看到是否有慢性病<code>chronic_med_condition</code>的缺失，与<code>opinion_h1n1_vacc_effective</code>的缺失相对较集中。除此之外，也可以看到有慢性病的人年龄普遍较大。</p>
 <div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="task-02.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 先简单处理一下一些类别变量的顺序</span></span>
 <span id="cb244-2"><a href="task-02.html#cb244-2" aria-hidden="true" tabindex="-1"></a>h1n1_data_matplt <span class="ot">&lt;-</span> h1n1_data</span>
 <span id="cb244-3"><a href="task-02.html#cb244-3" aria-hidden="true" tabindex="-1"></a>h1n1_data_matplt<span class="sc">$</span>age_group <span class="ot">&lt;-</span> <span class="fu">factor</span>(h1n1_data_matplt<span class="sc">$</span>age_group)</span>
@@ -1078,6 +1078,10 @@ gitbook.start({
 "text": null
 },
 "download": ["RLearning.pdf"],
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
